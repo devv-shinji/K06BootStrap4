@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- 
+            네비게이션 바 제작시 스크롤에도 항상 상단에 고정되게 할 때는 
+            fixed-top 클래스를 추가한다.
+         -->
+        <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <!-- Brand -->
+            <a class="navbar-brand" href="#"><img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='25' viewBox='0 0 32 25'%3E%3Cg fill='%23C74634'%3E%3Cpath d='M9.9,20.1c-5.5,0-9.9-4.4-9.9-9.9c0-5.5,4.4-9.9,9.9-9.9h11.6c5.5,0,9.9,4.4,9.9,9.9c0,5.5-4.4,9.9-9.9,9.9H9.9 M21.2,16.6c3.6,0,6.4-2.9,6.4-6.4c0-3.6-2.9-6.4-6.4-6.4h-11c-3.6,0-6.4,2.9-6.4,6.4s2.9,6.4,6.4,6.4H21.2'/%3E%3C/g%3E%3C/svg%3E" alt=""></a>
+          
+            <!-- Links -->
+            <ul class="navbar-nav">
+                <li class="nav-item">
+                <a class="nav-link" href="#">Link 1</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="#">Link 2</a>
+                </li>
+            
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Dropdown link
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="#">Link 1</a>
+                    <a class="dropdown-item" href="#">Link 2</a>
+                    <a class="dropdown-item" href="#">Link 3</a>
+                </div>
+                </li>
+                <form class="form-inline" action="/action_page.php">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-danger" type="submit">Search</button>
+                </form>
+                <!-- Input Group을 사용해서 하나의 그룹으로 표현 -->
+                <div class="input-group" style="width: 300px; margin-left: 20px;">
+                    <input type="text" class="form-control" placeholder="검색하기">
+                    <div class="input-group-append">
+                        <button class="btn btn-danger" type="submit">Go</button>
+                    </div>
+                </div>
+            </ul>
+        </nav>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <h4>게시판</h4>
+        
+        <div class="row">
+            <div class="col-3">
+                <!-- 좌측메뉴영역 -->
+                <ul class="list-group">
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        공지사항
+                        <span class="badge badge-primary badge-pill">12</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                        질문과답변
+                        <span class="badge badge-primary badge-pill">50</span>
+                    </li>
+                    <li class="list-group-item d-flex justify-content-between align-items-center active">
+                        Q&A게시판
+                        <span class="badge badge-light badge-pill">99</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-9">
+                <!-- 우측게시판영역 -->
+                <table class="table table-bordered table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th>NO</th>
+                            <th>제목</th>
+                            <th>작성자</th>
+                            <th>작성일</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td data-toggle="collapse" data-target="#demo">
+                                안녕하세요. 부트스트랩 수업이에요. <span class="badge badge-danger">NEW</span>
+                                <div id="demo" class="collapse">
+                                Lorem ipsum dolor text....
+                                </div> 
+                            </td>
+                            <td>신지희</td>
+                            <td>2020-04-24</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td><span class="badge badge-secondary">비공개</span> 안녕하세요. 부트스트랩 수업이에요.</td>
+                            <td>신지희</td>
+                            <td>2020-04-24</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>안녕하세요. 부트스트랩 수업이에요.</td>
+                            <td>신지희</td>
+                            <td>2020-04-24</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <br><br>
+            
+                <!-- 
+                    게시판에서 페이지번호를 표시할 때 pagination 클래스를 사용한다.
+                    disabled 클래스: 해당 아이템이 비활성화 된다. 오버/클릭 시 효과없음
+                    active 클래스: 해당 페이지를 다른 색으로 표현한다. (현재 페이지)
+                 -->
+                <!-- Center-aligned -->
+                <ul class="pagination justify-content-center">
+                    <li class="page-item disabled"><a class="page-link" href="javascript:void(0);">Previous</a></li>
+                    <li class="page-item active"><a class="page-link" href="javascript:void(0);">1</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">2</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">3</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">...</a></li>
+                    <li class="page-item"><a class="page-link" href="javascript:void(0);">Next</a></li>
+                </ul>
+              </ul>
+            </div>
+        </div>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br>
+        문서 끝이에용
+    </div>
+</body>
+</html>
